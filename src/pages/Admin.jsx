@@ -1,24 +1,26 @@
 import React, { useState } from 'react'
 import StickyHeadTable from '../components/StickyHeadTable'
-import { FaFileDownload } from 'react-icons/fa'
-import { Button } from '@mui/material'
 import { CiSearch } from 'react-icons/ci'
 import { RiAccountCircleLine } from 'react-icons/ri'
 import { JsonToExcel } from 'react-json-to-excel'
 import { applicants } from '../data/db'
+import { IoLogOutOutline } from 'react-icons/io5'
+import { Link } from 'react-router-dom'
 
 const Admin = () => {
     const [searchVal, setSearchVal] = useState('')
   return (
     <div className='min-h-screen'>
         <div className='flex justify-between items-center bg-gray-400 p-4'>
-            <p className='font-bold text-xl'>Admin Panel</p>
-            <div className='cursor-pointer'>
-                <RiAccountCircleLine size={40} />
-            </div>
+            <p className='font-bold text-xl text-white'>Admin Panel</p>
+            <Link to='/'>
+                <div className='cursor-pointer' title='Akkounttan shıǵıw'>
+                    <IoLogOutOutline stroke='white' size={30} />
+                </div>
+            </Link>
         </div>
         <div className='flex justify-between items-center p-4'>
-            <div className="relative mb-6">
+            <div className="relative">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                     <CiSearch className='w-4 h-4 font-bold' />
                 </div>

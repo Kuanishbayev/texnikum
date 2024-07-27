@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
 import Admin from './pages/Admin'
-import StickyHeadTable from './components/StickyHeadTable'
+import Login from './pages/Login'
 
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/admin' element={<Admin />} />
+        <Route path='/login' element={<Login />} />
       </Routes>
     </BrowserRouter>
   )
