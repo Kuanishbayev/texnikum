@@ -6,17 +6,26 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Stack } from '@mui/material';
+import licensePDF from '../assets/files/license.pdf'
 
 const Home = () => {
-    const [age, setAge] = useState('');
+    const [direction, setDirection] = useState('');
+    const [typeOfEducation, setTypeOfEducation] = useState('');
 
-    const handleChange = (event) => {
-        setAge(event.target.value);
+    const handleChangeDirection = (event) => {
+        setDirection(event.target.value);
+    };
+
+    const handleChangeTypeOfEducation = (event) => {
+        setTypeOfEducation(event.target.value);
     };
   return (
-    <div className='h-screen flex flex-col justify-center items-center'>
-        <div className='mb-4 text-xl'>
-            <span className='font-bold'>ARALBOYI MEDICINA HÁM TRANSPORT TEXNIKUMI</span>
+    <div className='py-10 min-h-screen flex flex-col justify-center items-center'>
+        <div className='mb-4'>
+            <p className='text-xl font-bold text-center'>ARALBOYI MEDICINA HÁM TRANSPORT TEXNIKUMÍ</p>
+        </div>
+        <div className='h-32 mb-4'>
+            <img className='h-full' src="/logo-aralboyi-texnikumi.png" alt="Logo" />
         </div>
         <form className="max-w-md mx-auto md:shadow p-10 md:border md:rounded-md">
             <div className='flex justify-center mb-4'>
@@ -52,36 +61,38 @@ const Home = () => {
             </div>
             <Stack spacing={2}>
                 <FormControl variant="standard" sx={{ minWidth: 120, width: '100%' }}>
-                    <InputLabel id="demo-simple-select-standard-label">Jónelisti tańlań</InputLabel>
+                    <InputLabel id="demo-simple-select-standard-label-2">Jónelisti tańlań</InputLabel>
                     <Select
-                        labelId="demo-simple-select-standard-label"
-                        id="demo-simple-select-standard"
-                        value={age}
-                        onChange={handleChange}
-                        label="Age"
+                        labelId="demo-simple-select-standard-label-2"
+                        id="demo-simple-select-standard-1"
+                        value={direction}
+                        onChange={handleChangeDirection}
+                        label="Jónelisti tańlań"
+                        required
                     >
-                    <MenuItem value="">
-                        <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={10}>Стоматология иши</MenuItem>
-                    <MenuItem value={20}>Ҳамширалик иши</MenuItem>
-                    <MenuItem value={30}>Марказлаштирилган пост оператори</MenuItem>
+                        {/* <MenuItem value="">
+                            <em>None</em>
+                        </MenuItem> */}
+                        <MenuItem value="stomatologiya-ishi">Стоматология иши</MenuItem>
+                        <MenuItem value="hamshiralik-ishi">Ҳамширалик иши</MenuItem>
+                        <MenuItem value="markazlashtirilgan-post-operatori">Марказлаштирилган пост оператори</MenuItem>
                     </Select>
                 </FormControl>
                 <FormControl variant="standard" sx={{ minWidth: 120, width: '100%' }}>
-                    <InputLabel id="demo-simple-select-standard-label">Tálim túrin tańlań</InputLabel>
+                    <InputLabel id="demo-simple-select-standard-label-2">Tálim túrin tańlań</InputLabel>
                     <Select
-                        labelId="demo-simple-select-standard-label"
-                        id="demo-simple-select-standard"
-                        value={age}
-                        onChange={handleChange}
-                        label="Age"
+                        labelId="demo-simple-select-standard-label-2"
+                        id="demo-simple-select-standard-2"
+                        value={typeOfEducation}
+                        onChange={handleChangeTypeOfEducation}
+                        label="Tálim túrin tańlań"
+                        required
                     >
-                    <MenuItem value="">
-                        <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={20}>Kúndizgi</MenuItem>
-                    <MenuItem value={30}>Sırtqı</MenuItem>
+                        {/* <MenuItem value="">
+                            <em>None</em>
+                        </MenuItem> */}
+                        <MenuItem value="kunduzgi">Kúndizgi</MenuItem>
+                        <MenuItem value="sirtqi">Sırtqı</MenuItem>
                     </Select>
                 </FormControl>
             </Stack>
@@ -89,6 +100,8 @@ const Home = () => {
                 <Button type="submit" variant="contained" endIcon={<SendIcon />}>Jiberiw</Button>
             </div>
         </form>
+        <p className='mt-10 font-semibold text-gray-600'>Aralboyı medicina hám transport texnikumı</p>
+        <a className='text-blue-600 hover:underline' href={licensePDF} download>Mámleketlik licenziya</a>
     </div>
   )
 }
