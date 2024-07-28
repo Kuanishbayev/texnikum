@@ -8,19 +8,20 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { applicants } from '../data/db';
+import { MdDelete, MdOutlineEdit } from 'react-icons/md';
 
 const columns = [
-  { id: 'first_name', label: 'Atı' },
-  { id: 'last_name', label: 'Familiyası' },
-  { id: 'middle_name', label: 'Ákesiniń atı' },
-  { id: 'date_of_birth', label: 'Tuwılǵan sánesi' },
-  { id: 'phone_number', label: 'Telefon nomeri' },
-  { id: 'secondary_phone_number', label: 'Ekinshi telefon nomeri' },
-  { id: 'direction', label: 'Tálim baǵdarı' },
-  { id: 'type_of_education', label: 'Tálim túri' },
-  { id: 'source', label: 'Qay jerden?' },
-  { id: 'created_at', label: 'Jaratılǵan waqtı' },
-  { id: 'updated_at', label: 'Jańalanǵan waqtı' },
+  { id: 'first_name', label: 'Atı', align: "center" },
+  { id: 'last_name', label: 'Familiyası', align: "center" },
+  { id: 'middle_name', label: 'Ákesiniń atı', align: "center" },
+  { id: 'date_of_birth', label: 'Tuwılǵan sánesi', align: "center" },
+  { id: 'phone_number', label: 'Telefon nomeri', align: "center" },
+  { id: 'secondary_phone_number', label: 'Ekinshi telefon nomeri', align: "center" },
+  { id: 'direction', label: 'Tálim baǵdarı', align: "center" },
+  { id: 'type_of_education', label: 'Tálim túri', align: "center" },
+  { id: 'source', label: 'Qay jerden?', align: "center" },
+  { id: 'created_at', label: 'Jaratılǵan waqtı', align: "center" },
+  { id: 'updated_at', label: 'Jańalanǵan waqtı', align: "center" },
 ];
 
 
@@ -54,6 +55,9 @@ export default function StickyHeadTable({searchVal}) {
                 {column.label}
                 </TableCell>
             ))}
+            <TableCell>
+              Basqarıw
+            </TableCell>
             </TableRow>
         </TableHead>
         <TableBody>
@@ -72,6 +76,16 @@ export default function StickyHeadTable({searchVal}) {
                         </TableCell>
                     );
                     })}
+                  <TableCell align="center">
+                    <div className='flex justify-center gap-2'>
+                      <button className='size-8 rounded-full bg-blue-500 flex justify-center items-center' title='Redaktorlaw'>
+                        <MdOutlineEdit fill='white' />
+                      </button>
+                      <button className='size-8 rounded-full bg-red-500 flex justify-center items-center' title='Óshiriw'>
+                        <MdDelete fill='white' />
+                      </button>
+                    </div>
+                  </TableCell>
                 </TableRow>
                 );
             })}
