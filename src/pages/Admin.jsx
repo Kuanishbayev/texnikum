@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import StickyHeadTable from '../components/StickyHeadTable'
 import { CiSearch } from 'react-icons/ci'
 import { IoLogOutOutline } from 'react-icons/io5'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Button } from '@mui/material'
 import { FaFileDownload } from 'react-icons/fa'
 
@@ -52,6 +52,14 @@ const row = applicants.map(applicant => (
 
 const Admin = () => {
     const [searchVal, setSearchVal] = useState('')
+
+    const clearMinute = 5;
+    let navigate = useNavigate()
+    
+    setTimeout(() => {
+        window.localStorage.clear()
+        navigate('/login')
+      }, clearMinute * 60 * 1000);
 
   return (
     <div className='min-h-screen'>
