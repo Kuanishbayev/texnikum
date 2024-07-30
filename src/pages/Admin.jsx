@@ -9,6 +9,7 @@ import { FaFileDownload } from 'react-icons/fa'
 import {ExcelFile, ExcelSheet} from 'react-xlsx-wrapper';
 import { applicants } from '../data/db';
 import { url } from '../../utils/Url'
+import toast, { Toaster } from 'react-hot-toast'
 
 
 const Admin = () => {
@@ -22,20 +23,32 @@ const Admin = () => {
             .then(data => setData(data))
             .catch(error => console.error(error));
         }, [])
-        
-        
-        // data?.map(item => console.log(item.ism))
     
     const row = data?.map(applicant => (
         [
-            {value: applicant.ism},
-            {value: applicant.familiya},
-            {value: applicant.otasiningIsmi},
-            {value: applicant.tugilganSanasi},
-            {value: applicant.telefonRaqami},
-            {value: applicant.qoshimchaRaqam},
-            {value: applicant.yonalish},
-            {value: applicant.talimTuri},
+            {value: applicant.first_name},
+            {value: applicant.last_name},
+            {value: applicant.middle_name},
+            {value: applicant.date_of_birth},
+            {value: applicant.phone_number},
+            {value: applicant.secondary_phone_number},
+            {value: applicant.direction},
+            {value: applicant.type_of_education},
+            {value: applicant.pasportSeriyaRaqami},
+            {value: applicant.dtmTestBali},
+            {value: applicant.source},
+            {value: applicant.created_at},
+            {value: applicant.updated_at},
+            // {value: applicant.ism},
+            // {value: applicant.familiya},
+            // {value: applicant.otasiningIsmi},
+            // {value: applicant.tugilganSanasi},
+            // {value: applicant.telefonRaqami},
+            // {value: applicant.qoshimchaRaqam},
+            // {value: applicant.yonalish},
+            // {value: applicant.talimTuri},
+            // {value: applicant.pasportSeriyaRaqami},
+            // {value: applicant.dtmTestBali},
             // {value: applicant.source},
             // {value: applicant.created_at},
             // {value: applicant.updated_at},
@@ -55,6 +68,8 @@ const Admin = () => {
                 {title: "Ekinshi telefon nomeri", width: {wch: 20}},
                 {title: "Tálim baǵdarı", width: {wch: 50}},
                 {title: "Tálim túri", width: {wch: 10}},
+                {title: "Passport seriya nomeri", width: {wch: 10}},
+                {title: "DTM test balı", width: {wch: 10}},
                 {title: "Qay jerden?", width: {wch: 10}},
                 {title: "Jaratılǵan waqtı", width: {wch: 20}},
                 {title: "Jańalanǵan waqtı", width: {wch: 20}},
@@ -79,6 +94,7 @@ const Admin = () => {
 
   return (
     <div className='min-h-screen'>
+        <Toaster />
         <div className='flex justify-between items-center bg-gray-400 p-4'>
             <p className='font-bold text-xl text-white'>Admin Panel</p>
             <Link to='/'>
@@ -96,19 +112,19 @@ const Admin = () => {
             </div>
             <Button variant="outlined" startIcon={<FaFileDownload />}>
                 <div>
-                        <ExcelFile filename={fileName} element={<button>Excel variantta júklep alıw</button>}>
-                            <ExcelSheet dataSet={multiDataSet} name={"Arzashılar"}/>
-                        </ExcelFile>
+                    <ExcelFile filename={fileName} element={<button>Excel variantta júklep alıw</button>}>
+                        <ExcelSheet dataSet={multiDataSet} name={"Arzashılar"}/>
+                    </ExcelFile>
                 </div>
             </Button>
         </div>
-                    {
-                        data ? (
-                            <StickyHeadTable data={data} searchVal={searchVal} />
-                        ) : (
-                            <p>Loading...</p>
-                        )
-                    }
+            {
+                data ? (
+                    <StickyHeadTable data={data} searchVal={searchVal} />
+                ) : (
+                    <p>Loading...</p>
+                )
+            }
     </div>
   )
 }
