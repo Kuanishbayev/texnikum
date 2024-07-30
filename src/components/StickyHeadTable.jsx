@@ -11,14 +11,16 @@ import { applicants } from '../data/db';
 import { MdDelete, MdOutlineEdit } from 'react-icons/md';
 
 const columns = [
-  { id: 'first_name', label: 'Atı', align: "center" },
-  { id: 'last_name', label: 'Familiyası', align: "center" },
-  { id: 'middle_name', label: 'Ákesiniń atı', align: "center" },
-  { id: 'date_of_birth', label: 'Tuwılǵan sánesi', align: "center" },
-  { id: 'phone_number', label: 'Telefon nomeri', align: "center" },
-  { id: 'secondary_phone_number', label: 'Ekinshi telefon nomeri', align: "center" },
-  { id: 'direction', label: 'Tálim baǵdarı', align: "center" },
-  { id: 'type_of_education', label: 'Tálim túri', align: "center" },
+  { id: 'ism', label: 'Atı', align: "center" },
+  { id: 'familiya', label: 'Familiyası', align: "center" },
+  { id: 'otasiningIsmi', label: 'Ákesiniń atı', align: "center" },
+  { id: 'tugilganSanasi', label: 'Tuwılǵan sánesi', align: "center" },
+  { id: 'telefonRaqami', label: 'Telefon nomeri', align: "center" },
+  { id: 'qoshimchaRaqam', label: 'Ekinshi telefon nomeri', align: "center" },
+  { id: 'yonalish', label: 'Tálim baǵdarı', align: "center" },
+  { id: 'talimTuri', label: 'Tálim túri', align: "center" },
+  { id: 'pasportSeriyaRaqami', label: 'Pasport Seriya Nomer', align: "center" },
+  { id: 'dtmTestBali', label: 'DTM test ball', align: "center" },
   { id: 'source', label: 'Qay jerden?', align: "center" },
   { id: 'created_at', label: 'Jaratılǵan waqtı', align: "center" },
   { id: 'updated_at', label: 'Jańalanǵan waqtı', align: "center" },
@@ -26,8 +28,8 @@ const columns = [
 
 
 
-export default function StickyHeadTable({searchVal}) {
-    const rows = applicants.filter(applicant => (applicant.first_name + " " + applicant.last_name + " " + applicant.middle_name).toLowerCase().includes(searchVal.toLowerCase()))
+export default function StickyHeadTable({data, searchVal}) {
+  const rows = data.filter(applicant => (applicant.ism + " " + applicant.familiya + " " + applicant.otasiningIsmi).toLowerCase().includes(searchVal.toLowerCase()))
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 

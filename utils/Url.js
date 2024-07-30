@@ -1,1 +1,1 @@
-export const url = 'https://backend.orfo-qareken.uz'
+export const url = 'https://api.aralboyitexnikum.uz'
