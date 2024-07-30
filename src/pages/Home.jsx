@@ -43,32 +43,32 @@ const Home = () => {
             //   'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(
-                {
-                    first_name: firstNameRef.current.value,
-                    last_name: lastNameRef.current.value,
-                    middle_name: middleNameRef.current.value,
-                    date_of_birth: dateOfBirthRef.current.value,
-                    phone_number: phoneNumberRef.current.value,
-                    secondary_phone_number: phoneNumber2Ref.current.value,
-                    direction: direction,
-                    type_of_education: typeOfEducation,
-                    pasportSeriyaRaqami: passportRef.current.value,
-                    dtmTestBali: dtmTestBaliRef.current.value,
-                    source: "website",
-                }
                 // {
-                //     ism: firstNameRef.current.value,
-                //     familiya: lastNameRef.current.value,
-                //     otasiningIsmi: middleNameRef.current.value,
-                //     tugilganSanasi: dateOfBirthRef.current.value,
-                //     telefonRaqami: phoneNumberRef.current.value,
-                //     qoshimchaRaqam: phoneNumber2Ref.current.value,
-                //     yonalish: direction,
-                //     talimTuri: typeOfEducation,
+                //     first_name: firstNameRef.current.value,
+                //     last_name: lastNameRef.current.value,
+                //     middle_name: middleNameRef.current.value,
+                //     date_of_birth: dateOfBirthRef.current.value,
+                //     phone_number: phoneNumberRef.current.value,
+                //     secondary_phone_number: phoneNumber2Ref.current.value,
+                //     direction: direction,
+                //     type_of_education: typeOfEducation,
                 //     pasportSeriyaRaqami: passportRef.current.value,
                 //     dtmTestBali: dtmTestBaliRef.current.value,
                 //     source: "website",
                 // }
+                {
+                    ism: firstNameRef.current.value,
+                    familiya: lastNameRef.current.value,
+                    otasiningIsmi: middleNameRef.current.value,
+                    tugilganSanasi: dateOfBirthRef.current.value,
+                    telefonRaqami: phoneNumberRef.current.value,
+                    qoshimchaRaqam: phoneNumber2Ref.current.value,
+                    yonalish: direction,
+                    talimTuri: typeOfEducation,
+                    pasportSeriyaRaqami: passportRef.current.value,
+                    dtmTestBali: dtmTestBaliRef.current.value,
+                    source: "website",
+                }
             )
             });
             
